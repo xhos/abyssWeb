@@ -4,19 +4,31 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    background-image: url(./image/background.jpg);
-    background-size: cover;
-    background-position: top center;
+
+body {
     position: relative;
 }
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+}
+
 html{
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
 }
+
 a{
     text-decoration: none;
 }
+
 .container{
     min-height: 100vh;
     width: 100%;
@@ -24,6 +36,7 @@ a{
     align-items: center;
     justify-content: center;
 }
+
 .header{
     position: fixed;
     top: 0;
@@ -36,16 +49,19 @@ a{
     align-items: center;
     z-index:100;
 }
+
 .navbar a{
     position:relative;
     font-size:16px;
     color: white;
     margin-right: 30px;
 }
+
 /* Design for main section */
 #Main{
     z-index: 1;
 }
+
 #Main::after{
     content:'';
     position: absolute;
@@ -57,6 +73,7 @@ a{
     opacity: .5;
     z-index: -1;
 }
+
 #Main h1{
     display: block;
     width: fit-content;
@@ -64,7 +81,16 @@ a{
     position: relative;
     color: white;
 }
-#Main .cta{ 
+
+/* Add this CSS for centering the button */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#Main .cta {
     display: inline-block;
     padding: 10px 30px;
     color: white;
@@ -73,10 +99,11 @@ a{
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: .1rem;
-    margin-top: 30px;
     transition: .3s ease background-color;
     transition-property: background-color, color;
 }
+
+
 #Main .cta:hover{
     color: white;
     background-color: aqua;

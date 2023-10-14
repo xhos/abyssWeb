@@ -4,29 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Abyssum</title>
+    <title>Abyss</title>
+  
+    <link rel="icon" type="image/png" href="image/favicon.png">
+  
 </head>
 <body>
+    <!-- Video Background -->
+    <video autoplay loop muted id="background-video">
+        <source src="image/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
     <!--Navigation bar settings-->
     <header class="header">
         <nav class="navbar">
             <a href="#">Home</a>
             <a href="#">About</a>
         </nav>
-    <form action="" class="search-bar">
-        <input type="text">
-        <button><i class='bx bx-search'></i></button>
-    </form>
     </header>
+
     <!-- Main -->
     <section id="Main">
         <div class="main container">
             <div>
-                <h1>Abyssum</h1>
-                <a href="https://discord.gg/abyssum" type="button" class="cta">Join</a>
+                <h1>Abyss</h1>
+                <div class="cta-container">
+                    <a href="https://discord.gg/abyssum" type="button" class="cta">Join</a>
+                </div>
             </div>
         </div>
     </section>
     <!-- End of Main -->
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars on the video */
+        }
+
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        /* .container {
+             Style your content container here 
+        } */
+    </style>
 </body>
 </html>
