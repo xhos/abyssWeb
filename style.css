@@ -19,6 +19,7 @@ body {
     min-height: 100%;
     width: auto;
     height: auto;
+    opacity: 0.8;
     z-index: -1;
 }
 
@@ -113,32 +114,40 @@ a{
     transition-property: background-color, color;
 }
 
-
 #Main .cta:hover{
     color: white;
     background-color: aqua;
 }
 
-#background-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-}
 /* End of design for main section */
-#Leaderboard h1{
-    display:block;
-    width: fit-content;
-    font-size: 4rem;
-    position:absolute;
+/* Leaderboard section */
+#Leaderboard {
+    z-index: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
     color: white;
+    text-align: center;
+    padding: 100px 0;
 }
-#Leaderboard{
+
+#Leaderboard::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
     background-color: black;
     opacity: 0.5;
+    z-index: -1;
 }
-/* Leaderboard section */
+
+#Leaderboard h1 {
+    display:block;
+    width: fit-content;
+    font-size: 8rem;
+    position:absolute;
+    color: white;
+    opacity: .8;
+}
