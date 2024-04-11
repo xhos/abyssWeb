@@ -15,6 +15,7 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+<<<<<<< Updated upstream
   background: linear-gradient(
     60deg,
     rgba(0, 36, 93, 1) 10%,
@@ -22,8 +23,17 @@ body {
     rgba(0, 22, 77, 1) 58%,
     rgba(19, 50, 115, 1) 76%
   );
+=======
+  background-image: linear-gradient(
+  120deg,
+  hsl(240deg 50% 13%) 6%,
+  hsl(240deg 41% 11%) 35%,
+  hsl(240deg 27% 9%) 50%,
+  hsl(0deg 0% 7%) 92%
+);
+>>>>>>> Stashed changes
   background-size: 600% 600%;
-  animation: bgAninmatedGradient 7s infinite linear;
+  animation: bgAninmatedGradient 20s infinite linear;
 }
 
 @keyframes bgAninmatedGradient {
@@ -82,7 +92,7 @@ body {
 }
 
 .card1 {
-  background-image: url('img/z.png');
+  background-image: url('img/1.png');
 }
 
 .card2 {
@@ -90,5 +100,5 @@ body {
 }
 
 .card3 {
-  background-image: url('img/2.png');
+  background-image: url('img/3.gif');
 }
