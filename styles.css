@@ -2,16 +2,34 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background-color: #112;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .background {
+  background-color: #ffff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(60deg, rgba(116,149,255,1) 9%, rgba(46,84,198,1) 38%, rgba(93,113,255,1) 52%, rgba(84,86,184,1) 76%);
+  background-size: 600% 600%;
+  animation: bgAninmatedGradient 7s infinite linear;
+}
+
+@keyframes bgAninmatedGradient{
+  0%{
+    background-position: 0 85%;
+  }
+  50%{
+    background-position: 100% 20%;
+  }
+  100%{
+    background-position: 0% 85%;
+  }
 }
 
 .card {
