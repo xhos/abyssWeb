@@ -16,12 +16,12 @@ body {
   height: 100%;
   width: 100%;
   background-image: linear-gradient(
-  120deg,
-  hsl(240deg 50% 13%) 6%,
-  hsl(240deg 41% 11%) 35%,
-  hsl(240deg 27% 9%) 50%,
-  hsl(0deg 0% 7%) 92%
-);
+    120deg,
+    hsl(240deg 50% 13%) 6%,
+    hsl(240deg 41% 11%) 35%,
+    hsl(240deg 27% 9%) 50%,
+    hsl(0deg 0% 7%) 92%
+  );
   background-size: 600% 600%;
   animation: bgAninmatedGradient 20s infinite linear;
 }
@@ -92,6 +92,6 @@ body {
 .card3 {
   background-image: url('img/discord.jpg');
 }
-.card3:hover{
-  background-image: url('img/3.gif')
+.card3:hover {
+  background-image: url('img/3.gif');
 }
