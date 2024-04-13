@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
 html,
 body {
   height: 100%;
@@ -7,53 +9,43 @@ body {
   padding: 0;
 }
 
-.background {
-  background-color: #ffff;
+.cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 165%;
   width: 100%;
-  background-image: linear-gradient(
-  120deg,
-  hsl(240deg 50% 13%) 6%,
-  hsl(240deg 41% 11%) 35%,
-  hsl(240deg 27% 9%) 50%,
-  hsl(0deg 0% 7%) 92%
-);
-  background-size: 600% 600%;
-  animation: bgAninmatedGradient 20s infinite linear;
-}
-
-@keyframes bgAninmatedGradient {
-  0% {
-    background-position: 0 85%;
-  }
-  50% {
-    background-position: 100% 20%;
-  }
-  100% {
-    background-position: 0% 85%;
-  }
 }
 
 .card {
   width: 120px;
   height: 160px;
-  border-radius: 5px;
+  border-radius: 16px;
   transition: 0.2s;
   transform: perspective(1000px);
   filter: brightness(1);
-  background-image: url('pic.jpg');
   background-size: cover;
   background-position: center;
-  box-shadow: 0 0 0 0 rgba(48, 65, 0, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.47);
 }
-
+.card-text {
+  font-family: 'Unbounded', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  position: absolute;
+  bottom: -50px;
+  left: 10px;
+  color: white;
+  font-size: 50px;
+}
 .card.large {
-  width: 600px;
-  width: 610px;
+  width: 620px;
   height: 250px;
 }
 
@@ -64,34 +56,115 @@ body {
 
 .card.small {
   width: 250px;
-  width: 245px;
   height: 350px;
-}
-
-.background {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
 .bottom-cards {
   display: flex;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }
 
-.card1 {
-  background-image: url('img/1.png');
+/* вот это я спиздил: */
+body {
+  font-family: system-ui;
+  background-color: #0e0e0e;
+  color: white;
+  text-align: center;
 }
 
-.card2 {
-  background-image: url('img/2.png');
+h1 {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.card3 {
-  background-image: url('img/discord.jpg');
+div {
+  width: 100%;
+  height: 100vh;
 }
-.card3:hover{
-  background-image: url('img/3.gif')
+/*defines background and clips extra content when it pulsuates.*/
+.bg-wrapper {
+  position: relative;
+  overflow: clip;
 }
+/*defines background dots and pulsating animation*/
+.bg-wrapper::before {
+  z-index: -10;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  //background-color: #000;
+  background-image: radial-gradient(#69696959 1px, transparent 1px);
+  /*background size defines gap between each dot */
+  background-size: 34px 34px;
+  opacity: 0.8;
+  animation: pulsate 20s infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/*defines rotating blurry blob*/
+.blob {
+  background-color: aliceblue;
+  height: 400px;
+  width: 400px;
+  aspect-ratio: 1;
+  position: absolute;
+
+  border-radius: 50px;
+  filter: blur(100px);
+  z-index: -1;
+  overflow-x: hidden;
+  animation: rotate 7s linear infinite;
+}
+
+.blob1 {
+  background: linear-gradient(200deg, #0bc94a 0%, #752bec 100%);
+
+  left: -10%;
+  top: 40%;
+}
+
+.blob2 {
+  background: linear-gradient(200deg, #0bc94a 0%, #752bec 100%);
+
+  right: -10%;
+  top: -30%;
+}
+
+.blob3 {
+  background: linear-gradient(200deg, #0bc94a 0%, #752bec 100%);
+
+  left: 70%;
+  bottom: -30%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* add more blurry blobs at different positions to get unique animated gradient background */
