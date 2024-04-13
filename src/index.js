@@ -9,6 +9,26 @@ const ANGLE = 0.5;
 
 let cards = document.getElementsByClassName('card');
 
+
+function randomizeBlobs() {
+  const blobs = document.querySelectorAll(".blob1, .blob2, .blob3, .blob4, .blob5, .blob6");
+
+  blobs.forEach(blob => {
+    // Randomize size (adjust ranges as needed)
+    const randomSize = Math.random() * 750 + 300;
+
+    // Randomize position
+    const randomLeft = Math.random() * 100;
+    const randomBottom = Math.random() * 100 - 30; 
+
+    // Apply styles
+    blob.style.width = randomSize + "px";
+    blob.style.height = randomSize + "px";
+    blob.style.left = randomLeft + "%";
+    blob.style.bottom = randomBottom + "%";
+  });
+}
+window.onload = randomizeBlobs;
 function rotate(cursorPosition, centerPosition, threshold = THRESHOLD) {
   if (cursorPosition - centerPosition >= 0) {
     return cursorPosition - centerPosition >= threshold
