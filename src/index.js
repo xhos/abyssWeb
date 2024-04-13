@@ -2,12 +2,32 @@ const THRESHOLD = 20;
 const STRENGTH = 200;
 const PERSPECTIVE = 1000;
 const BRIGHTNESS = 1;
-const SHADOW_COLOR = 'rgba(255, 255, 255, 0.5)';
+const SHADOW_COLOR = '#9f85ff';
 const HOVER_WIDTH = '160px';
 const HOVER_HEIGHT = '213.3px';
 const ANGLE = 0.5;
 
 let cards = document.getElementsByClassName('card');
+
+function randomizeBlobs() {
+  const blobs = document.querySelectorAll('.blob1, .blob2, .blob3, .blob4, .blob5, .blob6');
+
+  blobs.forEach((blob) => {
+    // Randomize size (adjust ranges as needed)
+    const randomSize = Math.random() * 750 + 300;
+
+    // Randomize position
+    const randomLeft = Math.random() * 100;
+    const randomBottom = Math.random() * 100 - 30;
+
+    // Apply styles
+    blob.style.width = randomSize + 'px';
+    blob.style.height = randomSize + 'px';
+    blob.style.left = randomLeft + '%';
+    blob.style.bottom = randomBottom + '%';
+  });
+}
+window.onload = randomizeBlobs;
 
 function rotate(cursorPosition, centerPosition, threshold = THRESHOLD) {
   if (cursorPosition - centerPosition >= 0) {
@@ -57,3 +77,61 @@ Array.from(cards).forEach((card) => {
     card.style.boxShadow = `0 0 0 0 ${SHADOW_COLOR}`;
   });
 });
+
+const wrapperElement = document.getElementById('wrapper');
+const cursorElement = document.getElementById('cursor');
+
+const cursor = {
+  x: 0,
+  y: 0,
+  lazyX: 0,
+  lazyY: 0,
+  // Configure speed in a 0 to 1 range.
+  lazySpeed: 0.05,
+
+  highlightScale: 0,
+  lazyHighlightScale: 0,
+};
+
+const lerp = (x, y, t) => {
+  return (1 - t) * x + t * y;
+};
+
+const onMouseEnter = () => {
+  cursorElement.classList.remove('hidden');
+
+  cursor.highlightScale = 1;
+};
+
+const onMouseLeave = () => {
+  cursorElement.classList.add('hidden');
+
+  cursor.highlightScale = 0;
+};
+
+const onMouseMove = (e) => {
+  cursor.x = e.clientX;
+  cursor.y = e.clientY;
+};
+
+const animate = () => {
+  requestAnimationFrame(animate);
+
+  cursor.lazyX = lerp(cursor.lazyX, cursor.x, cursor.lazySpeed);
+  cursor.lazyY = lerp(cursor.lazyY, cursor.y, cursor.lazySpeed);
+
+  cursor.lazyHighlightScale = lerp(cursor.lazyHighlightScale, cursor.highlightScale, 0.1);
+
+  wrapperElement.style.setProperty('--cursorX', `${cursor.x}px`);
+  wrapperElement.style.setProperty('--cursorY', `${cursor.y}px`);
+  wrapperElement.style.setProperty('--lazyCursorX', `${cursor.lazyX}px`);
+  wrapperElement.style.setProperty('--lazyCursorY', `${cursor.lazyY}px`);
+
+  wrapperElement.style.setProperty('--cursorHighlightScale', cursor.lazyHighlightScale);
+};
+
+animate();
+
+wrapperElement.addEventListener('mouseenter', onMouseEnter);
+wrapperElement.addEventListener('mouseleave', onMouseLeave);
+wrapperElement.addEventListener('mousemove', onMouseMove);
