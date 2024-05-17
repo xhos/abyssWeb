@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
 
-html,
 body {
   height: 100%;
   width: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
+  background-color: #0e0e0e;
 }
 
 .cards {
@@ -14,8 +14,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 165%;
-  width: 100%;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card {
@@ -80,7 +85,7 @@ footer p {
   height: 350px;
 }
 
-.bottom-cards {
+.card-row {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -88,13 +93,6 @@ footer p {
 }
 
 /* вот это я спиздил: */
-body {
-  font-family: system-ui;
-  background-color: #0e0e0e;
-  color: white;
-  text-align: center;
-}
-
 h1 {
   height: 100vh;
   display: flex;
@@ -102,15 +100,12 @@ h1 {
   align-items: center;
 }
 
-div {
-  width: 100%;
-  height: 100vh;
-}
-
 /*defines background and clips extra content when it pulsuates.*/
 .bg-wrapper {
   position: relative;
   overflow: clip;
+  width: 100%;
+  height: 100vh;
 }
 
 /*defines background dots and pulsating animation*/
